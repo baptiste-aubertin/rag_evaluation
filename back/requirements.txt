@@ -1,0 +1,8 @@
+rapidfuzz
+sentence-transformers
+ipywidgets
+pandas
+fastapi
+uvicorn[standard]
+jinja2
+python-dotenv
