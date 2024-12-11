@@ -3,7 +3,6 @@ from pydantic import BaseModel, Field
 
 
 class DocumentSchema(BaseModel):
-    doc_id: int = Field(..., description="L'identifiant unique du document.")
     text: str = Field(..., description="Le texte du document.")
     score: Optional[float] = Field(
         None, description="Un score de pertinence (entre 0 et 1)."
@@ -15,7 +14,6 @@ class DocumentSchema(BaseModel):
 
 
 class SampleSchema(BaseModel):
-    sample_id: int = Field(..., description="L'identifiant unique de l'échantillon.")
     query: str = Field(
         ..., description="La question posée par l’utilisateur, en langage naturel."
     )

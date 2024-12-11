@@ -26,7 +26,7 @@ def _compute_semantic_score(
 
 def compute_scores(rag_results: RagResultsSchema):
     t = time.time()
-    res = {s.sample_id: {} for s in rag_results.samples}
+    res = []
 
     for sample in rag_results.samples:
         fuzzy_score = _compute_fuzzy_score(sample.goldstandard_docs, sample.top5docs)
@@ -34,13 +34,12 @@ def compute_scores(rag_results: RagResultsSchema):
             sample.goldstandard_docs, sample.top5docs
         )
 
-        res[sample.sample_id]["fuzzy_score"] = {
-            doc.doc_id: max(scores) for doc, scores in zip(sample.top5docs, fuzzy_score)
-        }
-        res[sample.sample_id]["semantic_score"] = {
-            doc.doc_id: max(scores)
-            for doc, scores in zip(sample.top5docs, semantic_score)
-        }
+        res.append(
+            {
+                "fuzzy_score": [max(scores) for scores in fuzzy_score],
+                "semantic_score": [max(scores) for scores in semantic_score],
+            }
+        )
 
     print("Time taken:", time.time() - t)
     return res
