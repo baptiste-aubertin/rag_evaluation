@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException
 
-from ..schemas.rag_results import RagResultsSchema
-from ..services.rag_results import compute_scores
+from ..schemas.rag_results_schema import RagResultsSchema
+from ..services.rag_results_service import compute_scores
 
 ## import http error
 import traceback

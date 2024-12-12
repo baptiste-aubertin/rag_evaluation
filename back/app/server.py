@@ -17,7 +17,7 @@ from fastapi import (
 
 from fastapi.middleware.cors import CORSMiddleware
 
-from .routers.rag_results import rag_results_router
+from .routers.rag_results_router import rag_results_router
 
 # if os.environ.get("DEV") == "true":
 #     env_path = "./Back/.env.dev"
@@ -68,5 +68,4 @@ if __name__ == "__main__":
         host="127.0.0.1",
         port=8000,
         reload=True,
-        reload_excludes=["utils/semantic_analys.py"],
     )

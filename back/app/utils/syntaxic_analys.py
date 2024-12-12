@@ -12,20 +12,20 @@ def fuzzy_inclusion_score(a, b):
         b (str): The larger string to search in.
 
     Returns:
-        float: The score of inclusion (0 to 100).
+        float: The score of inclusion (0 to 1).
     """
     a = " ".join(a.lower().split())
     b = " ".join(b.lower().split())
 
     # Direct substring check
     if a in b:
-        return 100.0
+        return 1.0
 
     # Compute the partial ratio (fuzzy substring matching)
-    score = fuzz.partial_ratio(a, b)
+    score = fuzz.partial_ratio(a, b) / 100
 
     # Emphasize consecutive matches by computing the token set ratio
-    consecutive_score = fuzz.ratio(a, b)
+    consecutive_score = fuzz.ratio(a, b) / 100
 
     # Combine the scores with a weight towards consecutive matches
     combined_score = (0.7 * score) + (0.3 * consecutive_score)
