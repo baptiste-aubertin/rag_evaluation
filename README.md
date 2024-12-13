@@ -96,3 +96,44 @@ Before you begin, ensure you have the following installed on your machine:
    ```
    
    The front-end should now be accessible at `http://localhost:5173`.
+
+
+## Files structure
+
+```
+.
+├── back                                    # Back-end (Python/FastAPI) code
+│   ├── app
+│   │   ├── server.py
+│   │   ├── routers
+│   │   │   └── rag_results_router.py       # API routes handling RAG evaluation requests
+│   │   ├── schemas
+│   │   │   └── rag_results_schema.py       # Pydantic models for request/response validation
+│   │   ├── services
+│   │   │   └── rag_results_service.py      # Core logic for evaluating RAG outputs
+│   │   ├── tests
+│   │   │   └── test_server.py              # Pytest-based tests for back-end routes and logic
+│   │   └── utils
+│   │       ├── llm_as_a_judge.py           # Utility functions to score RAG outputs using LLM
+│   │       ├── semantic_analys.py          # Semantic analysis utilities
+│   │       └── syntaxic_analys.py          # Syntaxic analysis utilities
+│
+├── front                                   # Front-end (React/Vite) code
+│   ├── src
+│   │   ├── App.jsx                         
+│   │   ├── components
+│   │   │   ├── FileUploader.jsx            # Uploading RAG result files and request the back for the eval
+│   │   │   ├── Header.jsx                  # Top navigation/header
+│   │   │   ├── ScoreCalculator.jsx         # Calculate customisable score 
+│   │   │   └── Results
+│   │   │       ├── RagResult.jsx           # RAG result
+│   │   │       ├── RagResults.jsx          # List RAG results and their evaluations
+│   │   │       ├── Scores.jsx              # Scores for results
+│   │   │       ├── SideBar.jsx             # Sidebar for result details
+│   │   │       └── Sorters.jsx             # Sorting/filtering options for RAG results
+│   │   ├── pages
+│   │   │   └── Home.jsx                    # Main landing page for the application
+│
+├── notebooks
+│   └── experiments.ipynb                   # Experimental code, data exploration, prototyping and tests
+```
