@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { FuzzyScore, SemanticScore } from "./Scores";
+import { FuzzyScore, SemanticScore, LlmAsJudgeScore, GlobalScore } from "./Scores";
 
 const RagResult = ({ ragResult, setOpenedResult }) => {
 
@@ -14,9 +14,9 @@ const RagResult = ({ ragResult, setOpenedResult }) => {
             
             <div className="col-span-2 grid grid-cols-5 items-center" >
                 <FuzzyScore score={ragResult.fuzzy_score} />
-                <SemanticScore score={ragResult.semantic_score} />
-                <span className="">{0}</span>
-                <span className="">{ragResult.global_score && ragResult.global_score.toFixed(2)}</span>
+                <SemanticScore score={ragResult.semantic_score}/>
+                <LlmAsJudgeScore score={ragResult.llm_as_judge_score}/>
+                <GlobalScore score={ragResult.global_score}/>
                 <button className="btn btn-sm btn-outline btn-primary " onClick={() => setOpenedResult(ragResult)}>Details</button>
             </div>
         </div>

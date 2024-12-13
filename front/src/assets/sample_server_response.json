@@ -1,8 +1,8 @@
 [
     {
         "llm_as_judge_score": {
-            "score": 1.0,
-            "feedback": "Feedback: The response provides a detailed explanation of the reasons why there are no seat belts on trains, citing various safety and operational aspects of rail travel. The explanation is accurate and factual, matching the reference answer. The response also provides supporting evidence and examples to reinforce its points. "
+            "sample_score": 1.0,
+            "feedback": "Feedback: The response provides a detailed explanation for the absence of seat belts on trains, covering various aspects such as safety, operational efficiency, and design considerations. The explanation is accurate and factual, aligning with the reference answer. The response also provides supporting evidence and examples to strengthen its arguments. "
         },
         "fuzzy_score": {
             "sample_score": 0.7295060904625457,
@@ -41,7 +41,7 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 1.0,
+            "sample_score": 1.0,
             "feedback": "Feedback: The response accurately explains the reasons why consulates take away the passport to issue a visa, including verification and security measures, legal requirements and administrative considerations, operational and practical reasons, and cultural and administrative practices. The response provides detailed explanations and specific examples to support its claims. "
         },
         "fuzzy_score": {
@@ -97,8 +97,8 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 0.5,
-            "feedback": "Feedback: The response provides some relevant information about the purpose of check-in before flying, but it is not entirely accurate and factual. The response mentions planning and resource management, coupon collection, and historical data and customer behavior, but it does not mention the most important purpose of check-in, which is to allow the operating airline to claim the value of the flight from whoever issued the ticket initially. "
+            "sample_score": 0.5,
+            "feedback": "Feedback: The response provides some relevant information about the purpose of check-in before flying, but it is not entirely accurate and factual compared to the reference answer. The response mentions planning and resource management, coupon collection, historical data, and online check-in, but it does not mention the crucial aspect of the check-in process being the time when the airline is compensated for the flight. "
         },
         "fuzzy_score": {
             "sample_score": 0.5173583453290203,
@@ -153,7 +153,7 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 1.0,
+            "sample_score": 1.0,
             "feedback": "Feedback: The response accurately explains the reasons behind the hotel's block on the payment card, including the deposit and incidentals, separate transactions, overlap of transactions, and banking software and processes. The response also provides clear steps to resolve the situation, including speaking to the hotel staff, contacting the bank, and providing documentation. "
         },
         "fuzzy_score": {
@@ -209,8 +209,8 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 0.75,
-            "feedback": "Feedback: The response provides a detailed breakdown of the consequences of being refused entry between two countries, covering specific scenarios and general situations. However, it lacks a clear and concise summary of the main points, and some information is not directly supported by the reference answer. "
+            "sample_score": 0.75,
+            "feedback": "Feedback: The response provides a detailed breakdown of the consequences of being refused entry between two countries, covering specific scenarios and general situations. However, it lacks a clear and concise summary of the main points, making it difficult to quickly grasp the key information. "
         },
         "fuzzy_score": {
             "sample_score": 0.5800829806491385,
@@ -265,8 +265,8 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 0.75,
-            "feedback": "Feedback: The response accurately explains the factors contributing to cheaper flights within the UK compared to trains, including infrastructure costs, competition, pricing models, and consumer expectations. However, it does not specifically mention the charges imposed by budget airlines on extras, which is a key point highlighted in the reference answer. "
+            "sample_score": 0.75,
+            "feedback": "Feedback: The response provides a clear and concise explanation of the factors that contribute to flying being cheaper within the UK than taking the train. The points made about infrastructure costs, competition, pricing models, and privatization are accurate and align with the reference answer. However, the response could be improved by providing more specific examples and data to support the claims made. "
         },
         "fuzzy_score": {
             "sample_score": 0.5753679725390648,
@@ -321,8 +321,8 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 1.0,
-            "feedback": "Feedback: The response provides a detailed and accurate explanation of the visa rules for US speakers attending UK conferences, including the permitted activities, paid engagements, conference organizers, and risk of refusal. The response also provides a clear summary of the key points and emphasizes the importance of being prepared for a landing interview. "
+            "sample_score": 1.0,
+            "feedback": "Feedback: The response accurately explains the visa rules for US speakers attending UK conferences, including the permitted activities, paid engagements, conference organizers, and risk of refusal. The response provides detailed information and examples to support its claims. "
         },
         "fuzzy_score": {
             "sample_score": 0.626981067219731,
@@ -377,8 +377,8 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 0.75,
-            "feedback": "Feedback: The response accurately provides guidelines for visiting a German Biergarten, including starting conversations, clinking beer mugs, drinking etiquette, and more. It also mentions that Biergartens are self-service, but some tables might have tablecloths indicating a different service level. The response does not mention the specific rule about bringing food and drinks, but it does mention that you should not order food delivery to the Biergarten. "
+            "sample_score": 1.0,
+            "feedback": "Feedback: The response accurately explains the etiquette rules and customs for visiting a German Biergarten, covering various aspects such as starting conversations, clinking beer mugs, drinking etiquette, crowded Biergartens, bringing food, seating etiquette, service and self-serve, and local laws. The response provides detailed information and specific examples, demonstrating a good understanding of the topic. "
         },
         "fuzzy_score": {
             "sample_score": 0.5165952106658387,
@@ -433,8 +433,8 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 0.75,
-            "feedback": "Feedback: The response accurately identifies the key steps to take when dealing with serial refusals of a visa, including stopping applications, understanding the reasons for rejection, and seeking legal advice. It also provides additional suggestions for improving personal circumstances and avoiding common pitfalls. "
+            "sample_score": 1.0,
+            "feedback": "Feedback: The response provides a comprehensive and accurate outline of steps to take when dealing with serial refusals of a visa application. It correctly emphasizes the importance of stopping applications, understanding the reasons for rejection, and addressing those concerns. The response also highlights the value of seeking legal advice and improving personal circumstances. "
         },
         "fuzzy_score": {
             "sample_score": 0.6682626703222312,
@@ -489,8 +489,8 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 0.75,
-            "feedback": "Feedback: The response provides a detailed breakdown of the difference between deportation and removal, covering various aspects such as severity, frequency, profile of a deportee/removal, process, and legal basis. The explanation is clear and concise, and the writer has made an effort to provide specific examples. However, the response does not directly address the reference answer's key point about the necessity of getting a deportation order lifted. "
+            "sample_score": 0.75,
+            "feedback": "Feedback: The response provides a detailed breakdown of the difference between deportation and removal, covering various aspects such as severity, frequency, profile of a deportee/removalee, process, legal basis, and examples. The response is well-structured and easy to follow. However, it does not directly address the necessity of getting a deportation order lifted, which is a key point highlighted in the reference answer. "
         },
         "fuzzy_score": {
             "sample_score": 0.5604882247966966,
@@ -545,7 +545,7 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 1.0,
+            "sample_score": 1.0,
             "feedback": "Feedback: The response provides a detailed and accurate explanation of the regulations regarding frozen liquids in different countries, including the TSA, medical exceptions, Australian, and European Union/United Kingdom regulations. The response also correctly explains the 3-1-1 liquids requirements and the 100 ml rule. "
         },
         "fuzzy_score": {
@@ -601,8 +601,8 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 1.0,
-            "feedback": "Feedback: The response provides a detailed and comprehensive guide on how to buy a car for a road trip in the United States, covering various aspects such as choosing the right state, purchasing a car, registering the car, obtaining insurance, preparing for the trip, and selling the car. The response is accurate and factual, providing specific examples and references to support the information. "
+            "sample_score": 1.0,
+            "feedback": "Feedback: The response provides a detailed and accurate guide on how to buy a car for a road trip in the United States, covering various aspects such as choosing the right state, purchasing a car, registering the car, obtaining insurance, preparing for the trip, and selling the car. The response also provides specific examples and requirements for different states, making it a comprehensive resource for tourists. "
         },
         "fuzzy_score": {
             "sample_score": 0.6234635278425885,
@@ -657,8 +657,8 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 0.75,
-            "feedback": "Feedback: The response provides a detailed and well-structured explanation of the factors contributing to the higher cost of one-way car rentals compared to round-trip rentals. The writer has demonstrated a good understanding of the complexities involved in managing car inventories, market competition, seasonal demand, and regional practices. The response is also supported by specific examples and data, which adds to its credibility. "
+            "sample_score": 0.75,
+            "feedback": "Feedback: The response provides a detailed and well-structured explanation of the factors contributing to the higher cost of one-way car rentals compared to round-trip rentals. The writer effectively breaks down the complexities of inventory management, market competition, seasonal demand, one-way fee structures, and regional practices to demonstrate a clear understanding of the topic. "
         },
         "fuzzy_score": {
             "sample_score": 0.7376443761796649,
@@ -713,7 +713,7 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 1.0,
+            "sample_score": 1.0,
             "feedback": "Feedback: The response accurately addresses the safety of steam train rides, providing specific points that support its conclusion, including routine inspections and maintenance, regulations and standards, safety culture, rare incidents, and comparative safety. The response also acknowledges the inherent risks in transportation but emphasizes the measures in place to mitigate them. "
         },
         "fuzzy_score": {
@@ -769,8 +769,8 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 0.75,
-            "feedback": "Feedback: The response provides some accurate information about the most dangerous areas of Paris and its suburbs, mentioning the northeastern part of Paris, Saint Denis, Aubervilliers, and La Courneuve. However, it lacks specific details and references to the reference answer, and some information is not entirely accurate, such as the mention of the XVIth arrondissement being a dangerous area. "
+            "sample_score": 0.5,
+            "feedback": "Feedback: The response provides some accurate information about the most dangerous areas of Paris and its suburbs, mentioning the northeastern part of Paris, Saint Denis, Aubervilliers, and La Courneuve. However, it also includes some incorrect or misleading information, such as the mention of the XVIth arrondissement being a dangerous area due to personal appearance and behavior, which is not supported by the reference answer. Additionally, the response does not provide a clear and concise answer to the question, instead presenting a lengthy and somewhat disorganized discussion of the topic. "
         },
         "fuzzy_score": {
             "sample_score": 0.7111352205791277,
@@ -825,8 +825,8 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 0.75,
-            "feedback": "Feedback: The response provides a clear and detailed explanation of why hotel booking sites ask for the number of people, covering various aspects such as amenities and expenses, safety and emergency preparedness, and regulatory compliance. The response also addresses the importance of accuracy in reporting the number of guests. "
+            "sample_score": 0.75,
+            "feedback": "Feedback: The response provides a detailed explanation of why hotel booking sites ask for the number of people, covering various aspects such as amenities and expenses, safety and emergency preparedness, and regulatory compliance. The response also addresses the importance of accuracy in reporting the number of guests. "
         },
         "fuzzy_score": {
             "sample_score": 0.759711012039473,
@@ -881,8 +881,8 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 0.5,
-            "feedback": "Feedback: The response provides some relevant information on what to do if you get arrested in a foreign country, but it is not entirely accurate and factual. The reference answer emphasizes the importance of seeking assistance from the consulate or embassy, which is not mentioned in the response. The response also provides some general advice, but it is not as specific and clear as the reference answer. "
+            "sample_score": 0.5,
+            "feedback": "Feedback: The response provides some relevant information on what to do if you get arrested in a foreign country, but it is not entirely accurate and factual. The response does not directly address the question and instead provides general advice on prevention and behavior upon encounter. The specific steps mentioned in the response, such as staying calm and cooperative, requesting a legal representative, and not signing documents without legal advice, are not explicitly mentioned in the reference answer. "
         },
         "fuzzy_score": {
             "sample_score": 0.534693214054162,
@@ -937,8 +937,8 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 1.0,
-            "feedback": "Feedback: The response accurately lists various offences that result in indirect free kicks, covering a range of situations and referencing specific laws. The explanations provided for each offence are clear and concise, demonstrating a good understanding of the rules. The response also acknowledges that not all of these offences are unique to Law 12, showing an awareness of the broader context. "
+            "sample_score": 1.0,
+            "feedback": "Feedback: The response accurately lists various offences that result in indirect free kicks, covering a range of situations and Laws. The explanations provided for each offence are clear and concise, and the response demonstrates a good understanding of the relevant rules. "
         },
         "fuzzy_score": {
             "sample_score": 0.6473876021178099,
@@ -993,8 +993,8 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 0.5,
-            "feedback": "Feedback: The response provides some accurate information about getting started in golf, such as the importance of watching instructional videos and practicing with others. However, it lacks specific details about the recommended equipment and course settings, and does not mention the importance of group lessons and understanding the rules of golf. "
+            "sample_score": 0.5,
+            "feedback": "Feedback: The response provides some accurate information about getting started in golf, such as the importance of watching instructional videos and considering basic equipment. However, it lacks specific details about the recommended equipment and courses, and does not mention the value of group lessons or understanding the rules of golf. "
         },
         "fuzzy_score": {
             "sample_score": 0.6944844817164908,
@@ -1049,8 +1049,8 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 1.0,
-            "feedback": "Feedback: The response accurately explains the reasons why American football does not have a farm league, citing factors such as high costs, large roster size, and the role of college football in player development. The response also provides supporting details and examples from the given context. "
+            "sample_score": 1.0,
+            "feedback": "Feedback: The response accurately explains the reasons why American football does not have a farm league, citing factors such as high costs, large roster size, and the role of college football in player development. The response also provides supporting details and examples to justify its claims. "
         },
         "fuzzy_score": {
             "sample_score": 0.7790689480550894,
@@ -1105,7 +1105,7 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 1.0,
+            "sample_score": 1.0,
             "feedback": "Feedback: The response accurately explains the reasons why boiling milk in an electric kettle can break it, including char formation, overheating electronics, heating element damage, thermal fuse tripping, and inability to detect empty state. The response also provides detailed explanations and examples to support its claims. "
         },
         "fuzzy_score": {
@@ -1137,8 +1137,8 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 1.0,
-            "feedback": "Feedback: The response provides a detailed and accurate description of the anatomical differences between a rabbit and a cat, covering various features such as rib structure, fat and meat color, skull and limbs, shoulder blades, femur and forearm bones, and vertebrae. The response is well-organized and easy to follow, making it clear how to distinguish between the two species. "
+            "sample_score": 1.0,
+            "feedback": "Feedback: The response provides a detailed and accurate description of the anatomical differences between a rabbit and a cat, covering various features such as rib structure, fat and meat color, skull and limbs, shoulder blades, femur and forearm bones, and vertebrae. The response is well-organized and easy to follow, with clear explanations and examples. "
         },
         "fuzzy_score": {
             "sample_score": 0.6357255249777347,
@@ -1193,8 +1193,8 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 0.75,
-            "feedback": "Feedback: The response accurately mentions several methods to prevent browning of avocados, including vitamin C, reducing air exposure, Propanethiol S-oxide gas from onions, and acids. However, it does not mention the effectiveness of sodium bisulfite and ascorbic acid combination, which is mentioned in the reference answer. "
+            "sample_score": 0.75,
+            "feedback": "Feedback: The response provides a comprehensive overview of methods to prevent browning of avocados, including vitamin C, reducing air exposure, Propanethiol S-oxide gas from onions, and acids. The information is accurate and factual, with proper citation of sources. However, the response does not specifically mention citric acid or lactic acid, which are mentioned in the reference answer. "
         },
         "fuzzy_score": {
             "sample_score": 0.7142853861914386,
@@ -1249,8 +1249,8 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 0.5,
-            "feedback": "Feedback: The response provides some accurate information about the danger zone and the importance of following guidelines from reputable sources, but it lacks specific details and guidelines from the USDA, which are crucial in determining the safety of food left at room temperature. The response also fails to mention the two-hour rule and the temperature above 90°F (32°C) limit. "
+            "sample_score": 0.5,
+            "feedback": "Feedback: The response provides some accurate information about the danger zone and the importance of following guidelines from reputable sources, but it lacks specific details and references to support its claims. The response also fails to mention the USDA guidelines and the recommended discard times for food left in the danger zone. "
         },
         "fuzzy_score": {
             "sample_score": 0.6360762721365057,
@@ -1305,8 +1305,8 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 0.75,
-            "feedback": "Feedback: The response accurately describes the challenges and limitations of using coconut cream to create a non-dairy ganache, including the need for additional stabilization methods and the differences in texture and mouthfeel compared to dairy ganache. The response also provides specific examples and suggestions for achieving a whipped and set consistency. "
+            "sample_score": 0.75,
+            "feedback": "Feedback: The response accurately presents the challenges and limitations of using coconut cream to create a non-dairy ganache, including the need for additional stabilization methods and the differences in texture and mouthfeel compared to dairy ganache. The response also provides specific examples and suggestions for achieving a whipped and set consistency. "
         },
         "fuzzy_score": {
             "sample_score": 0.5805611147153644,
@@ -1361,7 +1361,7 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 1.0,
+            "sample_score": 1.0,
             "feedback": "Feedback: The response accurately explains the risks associated with mixing mold into jam or pickles, citing specific reasons such as the production of mycotoxins, spread of mold, and USDA guidelines. The response also provides additional context about mold identification and the importance of erring on the side of caution. "
         },
         "fuzzy_score": {
@@ -1417,7 +1417,7 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 1.0,
+            "sample_score": 1.0,
             "feedback": "Feedback: The response accurately describes the temperature ranges for the Maillard reaction, including the effects of temperature on the reaction's speed and noticeable effects. The response also provides additional context and examples to support its claims. "
         },
         "fuzzy_score": {
@@ -1473,8 +1473,8 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 0.75,
-            "feedback": "Feedback: The response provides a clear and detailed explanation of the steps involved in inventing a cookie recipe, covering base ratio, technique, flavor combinations, ingredients' structure and role, and trial and error. The response is well-structured and easy to follow, with specific examples and references to support the claims. "
+            "sample_score": 1.0,
+            "feedback": "Feedback: The response provides a clear and detailed explanation of the steps involved in inventing a cookie recipe, covering base ratio, technique, flavor combinations, ingredients' structure and role, and trial and error. The response is well-organized and easy to follow, with specific examples and references to support the claims. "
         },
         "fuzzy_score": {
             "sample_score": 0.5234049579665319,
@@ -1529,8 +1529,8 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 1.0,
-            "feedback": "Feedback: The response accurately and factually describes the advantages of seasoned cast iron over enameled cast iron, including non-stick properties, heat resistance, cooking applications, reactivity, and maintenance. The response provides detailed explanations and examples to support its claims, and its content is consistent with the reference answer. "
+            "sample_score": 1.0,
+            "feedback": "Feedback: The response accurately and thoroughly explains the advantages of seasoned cast iron over enameled cast iron, including non-stick properties, heat resistance, cooking applications, reactivity, and maintenance. The response provides specific examples and details to support its claims, making it easy to follow and understand. "
         },
         "fuzzy_score": {
             "sample_score": 0.6963542519468098,
@@ -1585,7 +1585,7 @@
     },
     {
         "llm_as_judge_score": {
-            "score": 1.0,
+            "sample_score": 1.0,
             "feedback": "Feedback: The response provides a comprehensive list of international cooking terms that sound similar but have different meanings, covering various languages and cultures. The examples are accurate and factual, and the explanations are clear and concise. The response also highlights the nuances in culinary terminology across languages and cultures. "
         },
         "fuzzy_score": {

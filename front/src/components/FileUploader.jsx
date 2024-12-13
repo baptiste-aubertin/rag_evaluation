@@ -33,6 +33,7 @@ const FileUploader = ({ setData }) => {
                 jsonlData[i].fuzzy_score = sample_server_response[i].fuzzy_score.sample_score;
                 jsonlData[i].semantic_score = sample_server_response[i].semantic_score.sample_score;
                 jsonlData[i].llm_as_judge_score = sample_server_response[i].llm_as_judge_score.sample_score;
+                jsonlData[i].llm_as_judge_feedback = sample_server_response[i].llm_as_judge_score.feedback;
 
                 // Add scores for each document in the top 5
                 for (let j = 0; j < jsonlData[i].top5docs.length; j++) {

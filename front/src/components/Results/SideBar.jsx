@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import { LlmAsJudgeScore } from './Scores';
 /**
  * ExpandableText component:
  * Displays text with a "Read more"/"Show less" toggle if it exceeds the specified maximum length.
@@ -107,9 +107,13 @@ const DetailsSidebar = ({ openedResult, closeSidebar }) => {
                         </table>
                     </div>
 
+                    {/* Display llm as judge score and feedback */}
+                    <h1 className="font-bold text-sm mt-4">LLM as Judge score : <LlmAsJudgeScore score={openedResult.llm_as_judge_score}/></h1>
+                    <ExpandableText text={openedResult.llm_as_judge_feedback} maxLength={200} />
+
                     {/* Display goldstandard answer */}
-                    <h2 className="underline font-bold text-md">Goldstandard answer</h2>
-                    <ExpandableText text={openedResult.goldstandard_answer} />
+                    <h2 className="underline font-bold text-md mt-4">Goldstandard answer</h2>
+                    <ExpandableText text={openedResult.goldstandard_answer}  />
 
                     {/* Display goldstandard documents */}
                     <h2 className="underline font-bold text-md mt-4">Goldstandard docs</h2>
