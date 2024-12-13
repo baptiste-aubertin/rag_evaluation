@@ -18,6 +18,6 @@ def test_evaluate_route():
 
     # Validate the response against the RagEvaluationResponse schema
     # If the response isn't in the correct format, this will raise a ValidationError.
-    parsed_response = RagEvaluationResponse.parse_obj(response_json)
+    parsed_response = RagEvaluationResponse.model_validate(response_json)
 
     assert len(parsed_response.results) == len(rag_results["samples"])
