@@ -1,8 +1,10 @@
 import uvicorn
 
+import os
+
 from dotenv import load_dotenv
 
-env_path = "../.env"
+env_path = ".env"
 
 load_dotenv(env_path, override=True)
 
@@ -63,6 +65,6 @@ if __name__ == "__main__":
     uvicorn.run(
         "app.server:app",
         host="127.0.0.1",
-        port=8000,
+        port=os.getenv("API_PORT"),
         reload=True,
     )
