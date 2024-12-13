@@ -22,7 +22,10 @@ const Home = () => {
     const showUploadScreen = !ragResults;
 
     return (
+        
         <div className="w-full h-screen bg-[#1D232A] flex relative">
+            
+
             <div className="w-full h-full">
                 {showUploadScreen ? (
                     <div className="flex flex-col items-center text-center justify-center w-full h-full">
@@ -39,7 +42,7 @@ const Home = () => {
                             globalScore={globalScore}
                             setGlobalScore={setGlobalScore}
                         />
-                        <div className="w-full h-[85%] flex relative px-20">
+                        <div className="w-full h-[85%] flex relative px-20 pb-3">
                             <div className="h-full flex-1 transition-all duration-300 ease-in-out ">
                                 <RagResults
                                     ragResults={ragResults}

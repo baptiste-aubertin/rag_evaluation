@@ -63,7 +63,7 @@ const DetailsSidebar = ({ openedResult, closeSidebar }) => {
             </div>
 
             {openedResult && (
-                <div className="flex-1 px-4 overflow-y-auto">
+                <div className="flex-1 px-4 pb-4 mb-4 overflow-y-auto">
                     {/* Display answer */}
                     <h2 className="underline font-bold text-md mt-4">Answer</h2>
                     <ExpandableText text={openedResult.answer} />
