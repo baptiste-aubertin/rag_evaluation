@@ -72,7 +72,11 @@ const FileUploader = ({ setData }) => {
     async function requestServerResponse(jsonlData) {
         // Example: you might send the entire jsonlData, or just the file, depending on your API.
         // Here we assume you need to send the jsonlData.
-        const response = await axios.post('http://127.0.0.1:8000/rag_results/evaluate', { samples: jsonlData });
+        console.log(import.meta.env.VITE_API_URL)
+
+        const endpoint = new URL('/rag_results/evaluate', import.meta.env.VITE_API_URL).toString();
+
+        const response = await axios.post(endpoint, { samples: jsonlData });
         return response.data;
     }
 

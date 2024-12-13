@@ -40,7 +40,7 @@ Before you begin, ensure you have the following installed on your machine:
    
 2. Open the `front/.env` file in a text editor and fill in the required values. For example:
    ```
-    
+    VITE_API_URL=http://127.0.0.1:8000
    ```
 
    Make sure to adjust these values based on your setup.
@@ -64,7 +64,7 @@ Before you begin, ensure you have the following installed on your machine:
    python -m app.server
    ```
    
-   The back-end server should now be running at `http://localhost:8000` (or the port specified in `.env`).
+   The back-end server should now be running at `http://127.0.0.1:8000` (or the port specified in `.env`).
 
 ### Front-End Setup
 
@@ -83,4 +83,4 @@ Before you begin, ensure you have the following installed on your machine:
    npm run dev
    ```
    
-   The front-end should now be accessible at `http://localhost:5173` (or the port specified in `.env`).
+   The front-end should now be accessible at `http://localhost:5173`.
