@@ -66,6 +66,18 @@ Before you begin, ensure you have the following installed on your machine:
    
    The back-end server should now be running at `http://127.0.0.1:8000` (or the port specified in `.env`).
 
+#### Run back-end tests
+1. Navigate to the `back` directory:
+   ```bash
+   cd back
+   ```
+   
+2. Run pytest testspy:
+   ```bash
+   pytest app/tests/test_server.py
+   ```
+
+
 ### Front-End Setup
 
 1. Navigate to the `front` directory:

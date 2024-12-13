@@ -21,3 +21,21 @@ def test_evaluate_route():
     parsed_response = RagEvaluationResponse.model_validate(response_json)
 
     assert len(parsed_response.results) == len(rag_results["samples"])
+
+    global_scores = []
+    fuzzy_weight = 0.25
+    semantic_weight = 0.25
+    llm_weight = 0.5
+
+    # COmpute an example of score like the front could do
+    for result in parsed_response.results:
+        global_scores.append(
+            result.fuzzy_score.sample_score * fuzzy_weight
+            + result.semantic_score.sample_score * semantic_weight
+            + result.llm_as_judge_score.sample_score * llm_weight
+        )
+
+    # Assert that the global score is in the expected range
+    global_score = sum(global_scores) / len(global_scores)
+
+    assert 0.7 <= global_score <= 0.9
