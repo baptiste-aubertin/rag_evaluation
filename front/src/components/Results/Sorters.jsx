@@ -8,10 +8,11 @@ const Sorters = () => {
         <div className="col-span-3">
         </div>
         
-        <div className="col-span-2 grid grid-cols-4">
+        <div className="col-span-2 grid grid-cols-5">
             <FuzzyScoreTitle/>
             <SemanticScoreTitle/>
             <span className=""> ok </span>
+            <span className="">Global </span>
         </div>
     </div>
     );

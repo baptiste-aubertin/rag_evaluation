@@ -12,10 +12,11 @@ const RagResult = ({ ragResult, setOpenedResult }) => {
                 {ragResult.query}
             </div>
             
-            <div className="col-span-2 grid grid-cols-4 items-center" >
+            <div className="col-span-2 grid grid-cols-5 items-center" >
                 <FuzzyScore score={ragResult.fuzzy_score} />
                 <SemanticScore score={ragResult.semantic_score} />
                 <span className="">{0}</span>
+                <span className="">{ragResult.global_score && ragResult.global_score.toFixed(2)}</span>
                 <button className="btn btn-sm btn-outline btn-primary " onClick={() => setOpenedResult(ragResult)}>Details</button>
             </div>
         </div>
