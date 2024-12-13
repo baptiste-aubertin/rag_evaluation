@@ -10,7 +10,7 @@ import traceback
 rag_results_router = APIRouter(prefix="/rag_results")
 
 
-@rag_results_router.post("/test")
+@rag_results_router.post("/evaluate")
 async def syntaxic_search_route(
     rag_results: RagResultsSchema,
 ):

@@ -1,5 +1,5 @@
 import React from "react";
-import { FuzzyScoreTitle, SemanticScoreTitle } from "./Scores";
+import { FuzzyScoreTitle, SemanticScoreTitle, LlmAsJudgeScoreTitle, GlobalScoreTitle } from "./Scores";
 
 const Sorters = () => {
     return (
@@ -11,8 +11,8 @@ const Sorters = () => {
         <div className="col-span-2 grid grid-cols-5">
             <FuzzyScoreTitle/>
             <SemanticScoreTitle/>
-            <span className=""> ok </span>
-            <span className="">Global </span>
+            <LlmAsJudgeScoreTitle/>
+            <GlobalScoreTitle/>
         </div>
     </div>
     );
