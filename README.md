@@ -4,7 +4,7 @@
 
 This web application provides a user-friendly interface to evaluate the performance and quality of Retrieval-Augmented Generation (RAG) systems. By simply dragging and dropping your RAG application results.
 
-
+<p align="center"><img width=500 src="screenshot.png"/></p>
 
 ## Prerequisites
 
