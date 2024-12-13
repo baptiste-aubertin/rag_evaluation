@@ -62,9 +62,10 @@ app.include_router(rag_results_router)
 
 
 if __name__ == "__main__":
+    print("API running on port", os.getenv("API_PORT"))
     uvicorn.run(
         "app.server:app",
         host="127.0.0.1",
-        port=os.getenv("API_PORT"),
+        port=int(os.getenv("API_PORT")),
         reload=True,
     )
