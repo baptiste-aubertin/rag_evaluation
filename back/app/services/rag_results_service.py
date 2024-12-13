@@ -4,6 +4,7 @@ from ..utils.llm_as_a_judge import evaluate_instruction_response
 from ..schemas.rag_results_schema import DocumentSchema, RagResultsSchema
 import time
 import numpy as np
+from typing import List
 
 
 def _compute_fuzzy_score(
@@ -47,76 +48,107 @@ def _compute_llm_as_judge_score(
     return feedback, score
 
 
-def compute_scores(rag_results: RagResultsSchema):
+def compute_scores(rag_results: RagResultsSchema) -> List[dict]:
     """
-    Computes evaluation metrics for a set of RAG samples.
+    Compute evaluation metrics for a set of RAG samples.
 
-    This function calculates fuzzy matching, semantic similarity, and LLM-based judgment
-    scores for each sample in the provided RAG results. The scores are aggregated and
-    structured in a dictionary format for each sample.
+    For each sample:
+    - Fuzzy scores are computed between the retrieved documents and the gold standard documents.
+    - Semantic scores are computed similarly to fuzzy scores, but based on embedding similarity or other semantic metrics.
+    - An LLM-based "judge" score and feedback are computed by comparing the generated answer to the gold standard answer.
+
+    The final result is a list of dictionaries, where each dictionary corresponds to a single sample
+    and includes:
+        - llm_as_judge_score: Contains an overall LLM evaluation score and textual feedback.
+        - fuzzy_score: Contains the averaged fuzzy score (based on highest matches) and per-doc scores.
+        - semantic_score: Contains the averaged semantic score (based on highest matches) and per-doc scores.
 
     Args:
-        rag_results (RagResultsSchema): Input data containing samples of RAG outputs
-        along with their corresponding gold standard references.
+        rag_results (RagResultsSchema): Contains multiple samples with:
+            - query
+            - answer
+            - goldstandard_answer
+            - top5docs (list of documents retrieved)
+            - goldstandard_docs (list of reference documents)
 
     Returns:
-        List[dict]: A list of dictionaries, each containing the computed scores
-        (fuzzy, semantic, and LLM-based) for a sample.
+        List[dict]: A list of result dictionaries for each sample.
     """
-    t = time.time()  # Record the start time for performance tracking
-    res = []  # Initialize a list to store the results for each sample
+    start_time = time.time()  # Track computation time
+    results = []  # List to hold computed scores for each sample
 
     for sample in rag_results.samples:
-        # Compute fuzzy matching scores between the top 5 retrieved docs and gold standard docs
-        fuzzy_score = _compute_fuzzy_score(sample.top5docs, sample.goldstandard_docs)
-
-        # Compute semantic similarity scores between the top 5 retrieved docs and gold standard docs
-        semantic_score = _compute_semantic_score(
+        # Calculate fuzzy scores between retrieved docs and gold standard docs.
+        fuzzy_score_matrix = _compute_fuzzy_score(
             sample.top5docs, sample.goldstandard_docs
         )
 
-        # Compute LLM-based scores and feedback for the generated answer against the gold standard
-        llm_as_judge_feedback, llm_as_judge_score = _compute_llm_as_judge_score(
+        # Calculate semantic scores between retrieved docs and gold standard docs.
+        semantic_score_matrix = _compute_semantic_score(
+            sample.top5docs, sample.goldstandard_docs
+        )
+
+        # Use an LLM to evaluate the generated answer against the gold standard.
+        llm_feedback, llm_judge_score = _compute_llm_as_judge_score(
             sample.query, sample.answer, sample.goldstandard_answer
         )
 
-        # Append the computed scores for the current sample to the results
-        res.append(
-            {
-                "llm_as_judge_score": {
-                    "sample_score": llm_as_judge_score,  # Overall LLM evaluation score
-                    "feedback": llm_as_judge_feedback,  # Feedback from the LLM as a string
-                },
-                "fuzzy_score": {
-                    "sample_score": sum([max(scores) for scores in fuzzy_score])
-                    / len(
-                        fuzzy_score
-                    ),  # Average of the highest fuzzy scores for each doc
-                    "top5doc_scores": [
-                        {  # Max score and the index of the best matching gold doc for each retrieved doc
-                            "score": max(scores),
-                            "gold_doc_index": int(np.argmax(scores)),
-                        }
-                        for scores in fuzzy_score
-                    ],
-                },
-                "semantic_score": {
-                    "sample_score": sum([max(scores) for scores in semantic_score])
-                    / len(
-                        semantic_score
-                    ),  # Average of the highest semantic scores for each doc
-                    "top5doc_scores": [
-                        {  # Max score and the index of the best matching gold doc for each retrieved doc
-                            "score": max(scores),
-                            "gold_doc_index": int(np.argmax(scores)),
-                        }
-                        for scores in semantic_score
-                    ],
-                },
-            }
+        # Identify which docs were actually used for generation.
+        used_for_gen_mask = [doc.used_for_generation for doc in sample.top5docs]
+
+        # Compute the aggregated fuzzy score:
+        # Take the highest fuzzy score for each doc used in generation, then average them.
+        fuzzy_scores_for_used_docs = [
+            max(fuzzy_score_matrix[i])
+            for i, used in enumerate(used_for_gen_mask)
+            if used
+        ]
+        avg_fuzzy_score = sum(fuzzy_scores_for_used_docs) / len(
+            fuzzy_scores_for_used_docs
         )
 
-    # Print the total time taken for computing the scores
-    print("Time taken:", time.time() - t)
+        # Compute the aggregated semantic score similarly to fuzzy scores.
+        semantic_scores_for_used_docs = [
+            max(semantic_score_matrix[i])
+            for i, used in enumerate(used_for_gen_mask)
+            if used
+        ]
+        avg_semantic_score = sum(semantic_scores_for_used_docs) / len(
+            semantic_scores_for_used_docs
+        )
 
-    return res  # Return the list of computed scores for all samples
+        # Prepare per-doc fuzzy scores: For each retrieved doc, get the best matching gold doc score and index.
+        fuzzy_doc_details = [
+            {"score": max(scores), "gold_doc_index": int(np.argmax(scores))}
+            for scores in fuzzy_score_matrix
+        ]
+
+        # Prepare per-doc semantic scores similarly.
+        semantic_doc_details = [
+            {"score": max(scores), "gold_doc_index": int(np.argmax(scores))}
+            for scores in semantic_score_matrix
+        ]
+
+        # Construct the result dictionary for this sample.
+        sample_result = {
+            "llm_as_judge_score": {
+                "sample_score": llm_judge_score,
+                "feedback": llm_feedback,
+            },
+            "fuzzy_score": {
+                "sample_score": avg_fuzzy_score,
+                "top5doc_scores": fuzzy_doc_details,
+            },
+            "semantic_score": {
+                "sample_score": avg_semantic_score,
+                "top5doc_scores": semantic_doc_details,
+            },
+        }
+
+        # Add this sample's result to the overall results list.
+        results.append(sample_result)
+
+    # Print total computation time for debugging or performance tracking.
+    print("Time taken:", time.time() - start_time)
+
+    return results

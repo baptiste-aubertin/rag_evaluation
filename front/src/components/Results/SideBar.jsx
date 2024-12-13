@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { LlmAsJudgeScore } from './Scores';
+import { Score } from './Scores';
 /**
  * ExpandableText component:
  * Displays text with a "Read more"/"Show less" toggle if it exceeds the specified maximum length.
@@ -95,7 +95,7 @@ const DetailsSidebar = ({ openedResult, closeSidebar }) => {
                             </thead>
                             <tbody>
                                 {openedResult.top5docs.map((doc, index) => (
-                                    <tr key={index} className="">
+                                    <tr key={index} className={`${!doc.used_for_generation && "bg-red-900"}`}>
                                         <td className="">{index + 1}</td>
                                         <td className="">{doc.scores.fuzzy.score.toFixed(2)}</td>
                                         <td className="">{doc.scores.fuzzy.gold_doc_index + 1}</td>
@@ -108,7 +108,7 @@ const DetailsSidebar = ({ openedResult, closeSidebar }) => {
                     </div>
 
                     {/* Display llm as judge score and feedback */}
-                    <h1 className="font-bold text-sm mt-4">LLM as Judge score : <LlmAsJudgeScore score={openedResult.llm_as_judge_score}/></h1>
+                    <h1 className="font-bold text-sm mt-4">LLM as Judge score : <Score score={openedResult.llm_as_judge_score}/></h1>
                     <ExpandableText text={openedResult.llm_as_judge_feedback} maxLength={200} />
 
                     {/* Display goldstandard answer */}

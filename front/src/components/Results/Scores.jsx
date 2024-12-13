@@ -1,51 +1,26 @@
 import React from "react";
+import { useState } from "react";
 
+export const ScoreTitle = ({ label, sortType, onSort, active }) => {
+    const [sortOrder, setSortOrder] = useState("desc");
 
-export const FuzzyScoreTitle = () => {
+    const handleClick = () => {
+        // Toggle sort order
+        const newOrder = sortOrder === "asc" ? "desc" : "asc";
+        setSortOrder(newOrder);
+        onSort(sortType, newOrder);
+    };
+
     return (
-        <span className="">Fuzzy</span>
+        <span 
+            onClick={handleClick} 
+            className="cursor-pointer hover:underline flex items-center gap-1"
+        >
+            {label}
+        </span>
     );
-}
+};
 
-export const FuzzyScore = ({ score }) => {
-    return (
-        <span className=" ">{score && score.toFixed(2)}</span>
-    );
-}
-
-export const SemanticScoreTitle = () => {
-    return (
-        <span className="">Semantic</span>
-    );
-}
-
-export const SemanticScore = ({ score }) => {
-    return (
-        <span className=" ">{score && score.toFixed(2)}</span>
-    );
-}
-
-export const LlmAsJudgeScoreTitle = () => {
-    return (
-        <span className="">LLM</span>
-    );
-}
-
-export const LlmAsJudgeScore = ({ score }) => {
-    return (
-        <span className=" ">{score && score.toFixed(2)}</span>
-    );
-}
-
-export const GlobalScoreTitle = () => {
-    return (
-        <span className="">Global</span>
-    );
-}
-
-export const GlobalScore = ({ score }) => {
-    return (
-        <span className=" ">{score && score.toFixed(2)}</span>
-    );
-}
-
+export const Score = ({ score }) => {
+    return <span>{score !== undefined && score !== null ? score.toFixed(2) : ""}</span>;
+};

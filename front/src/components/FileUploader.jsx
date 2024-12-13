@@ -34,17 +34,20 @@ async function readJsonlFile(file) {
  * @returns {Array} The merged data array.
  */
 function mergeResponseWithJsonl(jsonlData, responseData) {
+    
+    const results = responseData.results
+
     for (let i = 0; i < jsonlData.length; i++) {
-        jsonlData[i].fuzzy_score = responseData[i].fuzzy_score.sample_score;
-        jsonlData[i].semantic_score = responseData[i].semantic_score.sample_score;
-        jsonlData[i].llm_as_judge_score = responseData[i].llm_as_judge_score.sample_score;
-        jsonlData[i].llm_as_judge_feedback = responseData[i].llm_as_judge_score.feedback;
+        jsonlData[i].fuzzy_score = results[i].fuzzy_score.sample_score;
+        jsonlData[i].semantic_score = results[i].semantic_score.sample_score;
+        jsonlData[i].llm_as_judge_score = results[i].llm_as_judge_score.sample_score;
+        jsonlData[i].llm_as_judge_feedback = results[i].llm_as_judge_score.feedback;
 
         // Add scores for each document in the top 5
         for (let j = 0; j < jsonlData[i].top5docs.length; j++) {
             jsonlData[i].top5docs[j].scores = {
-                "fuzzy": responseData[i].fuzzy_score.top5doc_scores[j],
-                "semantic": responseData[i].semantic_score.top5doc_scores[j]
+                "fuzzy": results[i].fuzzy_score.top5doc_scores[j],
+                "semantic": results[i].semantic_score.top5doc_scores[j]
             };
         }
     }

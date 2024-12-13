@@ -1,5 +1,6 @@
 from fastapi.testclient import TestClient
 from ..server import app
+from ..schemas.rag_results_schema import RagEvaluationResponse
 import json
 
 client = TestClient(app)
@@ -15,4 +16,8 @@ def test_evaluate_route():
 
     response_json = response.json()
 
-    assert len(response_json) == len(rag_results["samples"])
+    # Validate the response against the RagEvaluationResponse schema
+    # If the response isn't in the correct format, this will raise a ValidationError.
+    parsed_response = RagEvaluationResponse.parse_obj(response_json)
+
+    assert len(parsed_response.results) == len(rag_results["samples"])

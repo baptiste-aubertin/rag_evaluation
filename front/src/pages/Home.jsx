@@ -43,6 +43,7 @@ const Home = () => {
                             <div className="h-full flex-1 transition-all duration-300 ease-in-out ">
                                 <RagResults
                                     ragResults={ragResults}
+                                    setRagResults={setRagResults}
                                     setOpenedResult={setOpenedResult}
                                 />
                             </div>
