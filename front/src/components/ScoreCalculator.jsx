@@ -71,6 +71,7 @@ const ScoreCalculator = ({ ragResults, setRagResults, globalScore, setGlobalScor
      */
     useEffect(() => {
         if (ragResults && globalScore == null) {
+            console.log('Auto-computing scores...');
             handleCompute();
         }
     }, [ragResults]);

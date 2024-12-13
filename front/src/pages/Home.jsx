@@ -13,6 +13,11 @@ const Home = () => {
     
     const [openedResult, setOpenedResult] = useState(null);
 
+    const handleBack = () => {
+        setRagResults(null);
+        setGlobalScore(null);
+        setOpenedResult(null);
+    };
 
     const showUploadScreen = !ragResults;
 
@@ -28,7 +33,7 @@ const Home = () => {
                 ) : (
                     <div className="w-full h-full">
                         <Header
-                            onBack={() => setRagResults(null)}
+                            onBack={() => handleBack()}
                             ragResults={ragResults}
                             setRagResults={setRagResults}
                             globalScore={globalScore}

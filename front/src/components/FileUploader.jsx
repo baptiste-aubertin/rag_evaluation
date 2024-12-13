@@ -59,7 +59,7 @@ function mergeResponseWithJsonl(jsonlData, responseData) {
  * - setData: function - Callback to pass processed data to the parent component.
  * - useSampleResponse: boolean - If true, use the sample response; if false, fetch from server.
  */
-const FileUploader = ({ setData, useSampleResponse = false }) => {
+const FileUploader = ({ setData }) => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -109,13 +109,10 @@ const FileUploader = ({ setData, useSampleResponse = false }) => {
             const jsonlData = await readJsonlFile(acceptedFiles[0]);
 
             let responseData;
-            if (useSampleResponse) {
-                // Use the imported sample response
-                responseData = sample_server_response;
-            } else {
+            
                 // Request the server for response
-                responseData = await requestServerResponse(jsonlData);
-            }
+            responseData = await requestServerResponse(jsonlData);
+
 
             const mergedData = mergeResponseWithJsonl(jsonlData, responseData);
             setData(mergedData);
