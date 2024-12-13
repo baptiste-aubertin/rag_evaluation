@@ -9,10 +9,6 @@ import traceback
 ## import http error
 import traceback
 
-
-rag_results_router = APIRouter(prefix="/rag_results")
-
-
 rag_results_router = APIRouter(prefix="/rag_results")
 
 
