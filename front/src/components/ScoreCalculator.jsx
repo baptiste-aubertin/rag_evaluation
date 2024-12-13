@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 
 const ScoreCalculator = ({ ragResults, setRagResults, globalScore, setGlobalScore }) => {
     const [scores, setScores] = useState({
-        "fuzzy_score": 0.5,
-        "semantic_score": 0.5
+        "fuzzy_score": 0.25,
+        "semantic_score": 0.25,
+        "llm_score": 0.5,
     });
 
     const [computing, setComputing] = useState(false);

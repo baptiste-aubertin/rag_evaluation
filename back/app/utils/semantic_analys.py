@@ -1,15 +1,16 @@
+import os
 from typing import List
-
 from sentence_transformers import SentenceTransformer
 
+
+model_name = os.getenv("TEXT_EMBEDDING_MODEL")
+
 model = SentenceTransformer(
-    "BAAI/bge-small-en-v1.5",
+    model_name,
     trust_remote_code=True,
     device="mps",
     config_kwargs={"use_memory_efficient_attention": False, "unpad_inputs": False},
 )
-
-# model = None
 
 
 def compute_document_embeddings(documents):

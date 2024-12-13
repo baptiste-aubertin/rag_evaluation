@@ -1,5 +1,6 @@
 from ..utils.semantic_analys import semantic_documents_similarity
 from ..utils.syntaxic_analys import fuzzy_documents_similarity
+from ..utils.llm_as_a_judge import evaluate_instruction_response
 from ..schemas.rag_results_schema import DocumentSchema, RagResultsSchema
 import time
 import numpy as np
@@ -35,6 +36,17 @@ def _compute_semantic_score(
     return sim_matrix
 
 
+def _compute_llm_as_judge_score(
+    query: str, answer: str, goldstandard_answer: str
+) -> tuple[str, int]:
+    """
+    Evaluates the response to an instruction against a reference answer using a language model.
+    """
+    feedback, score = evaluate_instruction_response(query, answer, goldstandard_answer)
+
+    return feedback, score
+
+
 def compute_scores(rag_results: RagResultsSchema):
     t = time.time()
     res = []
@@ -44,16 +56,16 @@ def compute_scores(rag_results: RagResultsSchema):
         semantic_score = _compute_semantic_score(
             sample.top5docs, sample.goldstandard_docs
         )
-        # llm_as_judge_score = _compute_llm_as_judge_score(
-        #     sample.answer, sample.goldstandard_answer
-        # )
+        llm_as_judge_feedback, llm_as_judge_score = _compute_llm_as_judge_score(
+            sample.query, sample.answer, sample.goldstandard_answer
+        )
 
         res.append(
             {
-                # "llm_as_judge_score": {
-                #     "scorellm_as_judge_score": llm_as_judge_score,
-                #     "llm_as_judge_comment": llm_as_judge_comment,
-                # },
+                "llm_as_judge_score": {
+                    "score": llm_as_judge_score,
+                    "feedback": llm_as_judge_feedback,
+                },
                 "fuzzy_score": {
                     "sample_score": sum([max(scores) for scores in fuzzy_score])
                     / len(fuzzy_score),

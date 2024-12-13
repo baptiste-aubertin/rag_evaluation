@@ -1,7 +1,10 @@
 import uvicorn
 
 from dotenv import load_dotenv
-import os
+
+env_path = "../.env"
+
+load_dotenv(env_path, override=True)
 
 from fastapi import (
     FastAPI,
@@ -18,12 +21,6 @@ from fastapi import (
 from fastapi.middleware.cors import CORSMiddleware
 
 from .routers.rag_results_router import rag_results_router
-
-# if os.environ.get("DEV") == "true":
-#     env_path = "./Back/.env.dev"
-
-# load_dotenv(env_path, override=True)
-
 
 app = FastAPI()
 
